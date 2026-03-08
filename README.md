@@ -4,8 +4,8 @@ Code companion to the paper:
 
 > **[Paper title]** — [Authors], [Journal/Conference], [Year].
 
-This repository makes the modelling approach transparent and reproducible.
-Patient data is **not** included (see [Data](#data)).
+This repository contains the refactored analysis code accompanying our Radiology: AI paper, released to support reproducibility..
+Patient data is **not** included.
 
 ---
 
