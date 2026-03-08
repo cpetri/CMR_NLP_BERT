@@ -1,0 +1,60 @@
+# =============================================================================
+# CMR Diagnostic Classifier — Configuration
+# =============================================================================
+# All hyperparameters, paths, and experiment settings in one place.
+# Modify these values to reproduce the exact runs described in the paper.
+
+# --- Data -------------------------------------------------------------------
+data:
+  # Path to the CSV file containing report text + labels.
+  # The file should NOT be committed to version control (see .gitignore).
+  content_csv: "data/raw/CMR_labels_w_missing.csv"
+  conclusion_csv: "data/raw/Conclusions_labels_w_missing_modified.csv"
+
+  # Column name that holds the report text for each model variant.
+  content_text_column: "Content"
+  conclusion_text_column: "Conclusion"
+
+  # Names of the label columns (must match the CSV header).
+  label_names:
+    - Normal
+    - DCM
+    - HCM
+    - LADF
+    - RCAF
+    - LCXF
+
+  # Column used for stratification during train/val/test splitting.
+  stratify_column: "DCM"
+
+  # Reproducibility seed (used for all random splits and weight initialisation).
+  random_seed: 13
+
+# --- Model ------------------------------------------------------------------
+model:
+  pretrained_name: "allenai/scibert_scivocab_cased"
+  dropout: 0.5
+
+# --- Training (Content model) -----------------------------------------------
+content_model:
+  max_len: 512
+  batch_size: 2
+  epochs: 3
+  learning_rate: 1.0e-5
+  weight_decay: 0.15          # applied to weight parameters only (not bias/LayerNorm)
+  warmup_steps: 0
+  checkpoint_path: "checkpoints/best_content_model.bin"
+
+# --- Training (Conclusion model) --------------------------------------------
+conclusion_model:
+  max_len: 400
+  batch_size: 2
+  epochs: 5
+  learning_rate: 1.0e-5
+  weight_decay: 0.15
+  warmup_steps: 0
+  checkpoint_path: "checkpoints/best_conclusion_model.bin"
+
+# --- Output -----------------------------------------------------------------
+output:
+  figures_dir: "figures/"
