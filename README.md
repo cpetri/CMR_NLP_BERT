@@ -2,9 +2,9 @@
 
 Code companion to the paper:
 
-> **[Paper title]** — [Authors], [Journal/Conference], [Year].
+> **Automatic Diagnosis Labeling of Cardiovascular MRI by Using Semisupervised Natural Language Processing of Text Reports** — Zaman S*, Petri C*, Vimalesvaran K, Howard J, Bharath A, Francis D, Peters N, Cole GD, Linton N, Radiology: Artificial Intelligence, 2021.
 
-This repository contains the refactored analysis code accompanying our Radiology: AI paper, released to support reproducibility..
+This repository contains the refactored analysis code accompanying our Radiology: AI paper, released to support reproducibility.
 Patient data is **not** included.
 
 ---
